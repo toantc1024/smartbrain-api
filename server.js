@@ -14,7 +14,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1;
 const db = knex ({
     client: 'pg',
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: 'postgres://smartbrain_1mge_user:c5rBT4z1zq09nZGGFvofESZuJFtMfiNF@dpg-ceui9eirrk0bnku61qk0-a.singapore-postgres.render.com/smartbrain_1mge',
       ssl: {
         rejectUnauthorized: false
       }
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   db.select('*').from('users')
     .returning('*')
     .then(console.log);
-    res.json({port:process.env.PORT, keyVal: process.env.DATABASE_URL});
+    res.json({port:process.env.PORT, keyVal: 'postgres://smartbrain_1mge_user:c5rBT4z1zq09nZGGFvofESZuJFtMfiNF@dpg-ceui9eirrk0bnku61qk0-a.singapore-postgres.render.com/smartbrain_1mge'});
   });
 app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });

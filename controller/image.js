@@ -29,7 +29,7 @@ const handleEntries = (req, res, db) => {
       //   entries:entries[0].entries,
       //   result: result
       //   })
-      })
+      // })
     .catch(err => console.log('unable to get entries'));
   })
   .catch(err => console.log('unable to connect clarifai'));

@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.json({port:process.env.PORT, keyVal: 'postgres://smartbrain_1mge_user:c5rBT4z1zq09nZGGFvofESZuJFtMfiNF@dpg-ceui9eirrk0bnku61qk0-a/smartbrain_1mge'});
-  });
+  res.json(req.body);
+});
 app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.put('/image', (req, res) => { image.handleEntries(req, res, db)});

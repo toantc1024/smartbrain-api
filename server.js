@@ -14,7 +14,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1;
 const db = knex ({
     client: 'pg',
     connection: {
-      connectionString: 'postgres://smartbrain_1mge_user:c5rBT4z1zq09nZGGFvofESZuJFtMfiNF@dpg-ceui9eirrk0bnku61qk0-a/smartbrain_1mge',
+      connectionString: process.env.DATABASE_URL,
       ssl: {
         rejectUnauthorized: false
       }
@@ -34,7 +34,7 @@ app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.put('/image', (req, res) => { image.handleEntries(req, res, db)});
 app.get('/profile/:id', (req, res) => { profile.handleProfile(req, res, db) });
-app.put('/imageUrl', (req, res) => { image.handleImageUrl(req, res)});
+app.put('/imageUrl', (req, res) => { image.handleImageUrl(req, res, process.env.CLARIFAI_API_KEY)});
 
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);

@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
   });
 app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
-app.put('/image', (req, res) => { image.handleEntries(req, res, db , process.env.API_KEY)});
+app.put('/image', (req, res) => { image.handleEntries(req, res, db , "c4b9c720614d48818405109878fa8e12")});
 app.get('/profile/:id', (req, res) => { profile.handleProfile(req, res, db) });
 
 app.listen(PORT, () => {

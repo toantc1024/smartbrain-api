@@ -9,9 +9,8 @@ const profile = require('./controller/profile.js');
 const image = require('./controller/image.js');
 require('dotenv').config();
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
- 
-console.log(process.env.DATABASE_URL);
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1;
+
 const db = knex ({
     client: 'pg',
     connection: {
@@ -21,8 +20,6 @@ const db = knex ({
       }
     }
 });
-
-
 
 
 const app = express();

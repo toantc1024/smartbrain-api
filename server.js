@@ -34,6 +34,7 @@ app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.put('/image', (req, res) => { image.handleEntries(req, res, db)});
 app.get('/profile/:id', (req, res) => { profile.handleProfile(req, res, db) });
+app.post('/imageUrl', (req, res) => { image.handleImageUrl(req, res)});
 
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);

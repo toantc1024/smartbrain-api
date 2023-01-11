@@ -1,5 +1,5 @@
 
-const handleEntries = (req, res, db, API_KEY) => {
+const handleEntries = (req, res, db) => {
     const { id, raw } = req.body;
     fetch(
         "https://api.clarifai.com/v2/models/f76196b43bbd45c99b4f3cd8e8b40a8a/outputs",
@@ -7,7 +7,7 @@ const handleEntries = (req, res, db, API_KEY) => {
         method: "POST",
         headers: {
             Accept: "application/json",
-            Authorization: "Key " + API_KEY,
+            Authorization: "Key c4b9c720614d48818405109878fa8e12",
         },
         body: raw,
         }

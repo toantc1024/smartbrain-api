@@ -14,17 +14,21 @@ const handleEntries = (req, res, db) => {
     )
   .then(response => response.json())
   .then(result => {
-      db('users')
-      .where('id', '=', id)
-      .increment({
-      entries: 1
-      })
-      .returning('*')
-      .then(entries => {
-        res.json({
-        entries:entries[0].entries,
-        result: result
-        })
+    res.json({
+      entries: 0,
+      result: result
+    })
+    // db('users')
+      // .where('id', '=', id)
+      // .increment({
+      // entries: 1
+      // })
+      // .returning('*')
+      // .then(entries => {
+      //   res.json({
+      //   entries:entries[0].entries,
+      //   result: result
+      //   })
       })
     .catch(err => console.log('unable to get entries'));
   })

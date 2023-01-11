@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
   db.select('*').from('users')
     .returning('*')
     .then(console.log);
-    res.json({port:process.env.PORT, key: process.env.DATABASE_URL});
+    res.json({port:process.env.PORT, keyVal: process.env.DATABASE_URL});
   });
 app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });

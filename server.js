@@ -28,9 +28,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  db.select('*').from('users')
-    .returning('*')
-    .then(console.log);
     res.json({port:process.env.PORT, keyVal: 'postgres://smartbrain_1mge_user:c5rBT4z1zq09nZGGFvofESZuJFtMfiNF@dpg-ceui9eirrk0bnku61qk0-a/smartbrain_1mge'});
   });
 app.post('/signin', (req, res) => { sigin.handleSignin(req, res, db, bcrypt) });

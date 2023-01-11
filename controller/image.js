@@ -1,17 +1,18 @@
 
 const handleEntries = (req, res, db) => {
+    
     const { id, raw } = req.body;
     fetch(
         "https://api.clarifai.com/v2/models/f76196b43bbd45c99b4f3cd8e8b40a8a/outputs",
         {
-        method: "POST",
-        headers: {
+          method: "POST",
+          headers: {
             Accept: "application/json",
-            Authorization: "Key c4b9c720614d48818405109878fa8e12",
-        },
-        body: raw,
+            Authorization: "Key 4f8f9d430a684f9fa860caec498bfad0",
+          },
+          body: raw,
         }
-    )
+      )
     .then(response => response.json())
     .then(result => {
         db('users')
@@ -32,3 +33,6 @@ const handleEntries = (req, res, db) => {
 module.exports = {
     handleEntries
 }
+
+
+
